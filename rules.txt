@@ -1,0 +1,7 @@
+- use the colors in the global.css file 
+- if it needed to add a color variable add it and give it a simple name 
+- modify just the metioned files 
+- put the content and its translation in the messages folder for each language
+- don't install any packages all of the needed packages are installed 
+- don't modify the existing componenets in the ui, if you need to add one add it other wise don't modify the one there just use them directly. 
+- use the table componenets availble in the ui 

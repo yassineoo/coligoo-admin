@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  /* Primary Colors */
+  --primary-color: hsla(21, 100%, 50%, 1);
+
+  /* Text Colors */
+  --text-primary: hsla(217, 19%, 27%, 1);
+  --text-secondary: hsla(215, 16%, 56%, 1);
+
+  /* Card Colors */
+  --card-bg: hsla(0, 0%, 100%, 1);
+  --card-border: hsla(0, 0%, 84%, 1);
+
+  /* Table Colors */
+  --table-bg: hsla(0, 0%, 100%, 1);
+  --table-border: hsla(0, 0%, 84%, 1);
+  --table-header-bg: hsla(295, 100%, 98%, 1);
+  --table-header-text: hsla(217, 19%, 27%, 1);
+  --table-text: hsla(217, 19%, 27%, 1);
+  --table-row-hover: hsla(240, 9%, 98%, 1);
+  --table-row-selected: hsla(213, 100%, 96%, 1);
+
+  /* Status Badge Colors */
+  --status-active-bg: hsla(122, 100%, 97%, 1);
+  --status-active-text: hsla(120, 100%, 25%, 1);
+  --status-inactive-bg: hsla(0, 0%, 95%, 1);
+  --status-inactive-text: hsla(0, 0%, 40%, 1);
+  --status-pending-bg: hsla(32, 100%, 96%, 1);
+  --status-pending-text: hsla(32, 95%, 44%, 1);
+  --status-delivered-bg: hsla(122, 100%, 97%, 1);
+  --status-delivered-text: hsla(120, 100%, 25%, 1);
+  --status-cancelled-bg: hsla(0, 100%, 96%, 1);
+  --status-cancelled-text: hsla(0, 84%, 60%, 1);
+  --status-processing-bg: hsla(220, 100%, 96%, 1);
+  --status-processing-text: hsla(220, 91%, 51%, 1);
+
+  /* Transaction Status Colors */
+  --status-successful-bg: hsla(122, 100%, 97%, 1);
+  --status-successful-text: hsla(120, 100%, 25%, 1);
+  --status-failure-bg: hsla(0, 100%, 96%, 1);
+  --status-failure-text: hsla(0, 84%, 60%, 1);
+  --status-in-progress-bg: hsla(21, 100%, 96%, 1);
+  --status-in-progress-text: hsla(21, 100%, 50%, 1);
+
+  /* Button Colors */
+  --btn-primary-bg: hsla(21, 100%, 50%, 1);
+  --btn-primary-text: hsla(0, 0%, 100%, 1);
+  --btn-secondary-bg: hsla(0, 0%, 100%, 1);
+  --btn-secondary-text: hsla(217, 19%, 27%, 1);
+  --btn-secondary-border: hsla(0, 0%, 84%, 1);
+  --btn-destructive-bg: hsla(0, 84%, 60%, 1);
+  --btn-destructive-text: hsla(0, 0%, 100%, 1);
+
+  /* Background Colors */
+  --background-primary: hsla(0, 0%, 100%, 1);
+  --background-secondary: hsla(0, 0%, 95%, 1);
+  --background-tertiary: hsla(0, 0%, 88%, 1);
+
+  /* Border Colors */
+  --border-primary: hsla(0, 0%, 84%, 1);
+  --bg-hover: hsla(240, 9%, 98%, 1);
+
+  /* Permission Badge Colors */
+  --permission-bg: rgba(0, 128, 1, 0.15);
+  --permission-text: hsla(120, 100%, 25%, 1);
+  --permission-border: hsla(122, 39%, 49%, 1);
+}
+
+@theme {
+  --color-orange-500: hsla(21, 100%, 50%, 1);
+  --color-gray-500: hsla(215, 16%, 56%, 1);
+  --color-gray-300: hsla(0, 0%, 84%, 1);
+  --color-gray-100: hsla(240, 33%, 98%, 1);
+  --color-purple-bg: hsla(262, 100%, 97%, 1);
+  --color-purple-icon: hsla(218, 100%, 25%, 1);
+  --color-green-bg: hsla(122, 100%, 97%, 1);
+  --color-green-icon: hsla(120, 100%, 25%, 1);
+  --color-red-bg: hsla(14, 100%, 97%, 1);
+  --color-red-icon: hsla(5, 85%, 52%, 1);
+  --color-gray-bg: hsla(35, 4%, 90%, 1);
+  --color-table-header: hsla(295, 100%, 98%, 1);
+  --color-table-border: hsla(0, 0%, 84%, 1);
+  --color-table-row-hover: hsla(240, 9%, 98%, 1);
+  --color-status-active: hsla(120, 100%, 25%, 1);
+  --color-status-inactive: hsla(0, 0%, 60%, 1);
+  --color-status-pending: hsla(32, 95%, 44%, 1);
+}
+
+h1 {
+  @apply text-4xl font-semibold;
+}
+
+h2 {
+  @apply text-2xl font-semibold text-gray-800;
+}
+.isActive {
+  @apply bg-orange-500 text-white before:content-[''] before:block before:absolute before:left-0 before:h-full before:w-1 before:bg-orange-500 before:-translate-x-4 before:rounded-tr-lg before:rounded-br-lg before:-translate-y-3 rtl:before:right-0 rtl:before:translate-x-4 rtl:before:rotate-180;
+}
