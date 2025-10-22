@@ -16,6 +16,8 @@ export default function SideNav() {
   const router = useRouter();
   const pathname = usePathname();
   const activeLinkRef = useRef<HTMLAnchorElement | null>(null);
+  const navRef = useRef<HTMLElement | null>(null);
+
   const [indicatorStyle, setIndicatorStyle] = useState<{
     top: number;
     height: number;
@@ -51,16 +53,36 @@ export default function SideNav() {
     { iconName: "setting", label: "Settings", path: "/dashboard/settings" },
   ];
 
-  useEffect(() => {
-    if (activeLinkRef.current) {
+  const updateIndicator = () => {
+    if (activeLinkRef.current && navRef.current) {
+      const linkOffsetTop = activeLinkRef.current.offsetTop;
+      const navScrollTop = navRef.current.scrollTop;
       setIndicatorStyle({
-        top: activeLinkRef.current.offsetTop,
+        top: linkOffsetTop - navScrollTop,
         height: activeLinkRef.current.offsetHeight,
         opacity: 1,
       });
     } else {
       setIndicatorStyle((prev) => ({ ...prev, opacity: 0 }));
     }
+  };
+
+  useEffect(() => {
+    updateIndicator();
+
+    const navEl = navRef.current;
+    if (!navEl) return;
+
+    const onScroll = () => updateIndicator();
+    const onResize = () => updateIndicator();
+
+    navEl.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      navEl.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onResize);
+    };
   }, [pathname]);
 
   const handleLogout = () => {
@@ -77,8 +99,11 @@ export default function SideNav() {
     <>
       <aside className="fixed top-[72px] left-0 w-54 h-[calc(100vh-72px)] bg-white border-r border-gray-100 z-50">
         <div className="flex flex-col h-full">
-          <div className="flex-1 py-8">
-            <nav className="relative px-4 space-y-1 max-h-[455px] overflow-y-auto">
+          <div className="flex-1 flex flex-col overflow-hidden">
+            <nav
+              ref={navRef}
+              className="relative px-4 space-y-1 flex-1 overflow-y-auto"
+            >
               <span
                 className="absolute left-0 w-1 bg-delivery-orange rounded-r-lg transition-all duration-300 ease-in-out"
                 style={{
